@@ -4,3 +4,7 @@ export type TodoProps = {
 		complete: boolean;
 	}[];
 };
+
+export type TodoTaskType = {
+	todo: { input: string; complete: boolean };
+};
