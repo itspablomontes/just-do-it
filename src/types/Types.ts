@@ -8,3 +8,7 @@ export type TodoProps = {
 export type TodoTaskType = {
 	todo: { input: string; complete: boolean };
 };
+
+export type TodoInputProps = {
+	handleAddTodo: (newTodo: string) => void;
+};
