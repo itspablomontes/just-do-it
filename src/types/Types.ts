@@ -1,8 +1,9 @@
-export type TodoProps = {
+export type TodoListProps = {
 	todos: {
 		input: string;
 		complete: boolean;
 	}[];
+	currentTab: string;
 };
 
 export type TodoTaskType = {
@@ -11,4 +12,13 @@ export type TodoTaskType = {
 
 export type TodoInputProps = {
 	handleAddTodo: (newTodo: string) => void;
+};
+
+export type TodoTabsProps = {
+	todos: {
+		input: string;
+		complete: boolean;
+	}[];
+	currentTab: string;
+	setCurrentTab: (tab: string) => void;
 };

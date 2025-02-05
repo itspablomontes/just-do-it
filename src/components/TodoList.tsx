@@ -1,14 +1,13 @@
 import TodoCard from "./TodoCard";
-import type { TodoProps } from "../types/Types";
+import type { TodoListProps } from "../types/Types";
 
-export default function TodoList({ todos }: TodoProps) {
+export default function TodoList({ todos, currentTab }: TodoListProps) {
 	const todosLength = todos.length;
 	const isTasksPlural = todosLength > 1;
-	const tab = "All";
 	const filteredTodosList =
-		tab === "All"
+		currentTab === "All"
 			? todos
-			: tab === "Completed"
+			: currentTab === "Completed"
 				? todos.filter((val) => val.complete)
 				: todos.filter((val) => !val.complete);
 	return (

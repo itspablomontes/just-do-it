@@ -7,6 +7,7 @@ export default function HomePage() {
 	const [todos, setTodos] = useState([
 		{ input: "Hello! Add your first todo!", complete: false },
 	]);
+	const [currentTab, setCurrentTab] = useState("Open");
 
 	const handleAddTodo = (newTodo: string) => {
 		const newTodoList = [...todos, { input: newTodo, complete: false }];
@@ -15,8 +16,12 @@ export default function HomePage() {
 
 	return (
 		<div className="px-8 sm:px-20 py-5 flex flex-col gap-5">
-			<Tabs todos={todos} />
-			<TodoList todos={todos} />
+			<Tabs
+				todos={todos}
+				currentTab={currentTab}
+				setCurrentTab={setCurrentTab}
+			/>
+			<TodoList todos={todos} currentTab={currentTab} />
 			<TodoInput handleAddTodo={handleAddTodo} />
 		</div>
 	);
