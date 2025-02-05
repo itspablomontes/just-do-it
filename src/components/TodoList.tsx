@@ -1,7 +1,11 @@
 import TodoCard from "./TodoCard";
 import type { TodoListProps } from "../types/Types";
 
-export default function TodoList({ todos, currentTab }: TodoListProps) {
+export default function TodoList({
+	todos,
+	currentTab,
+	handleDeleteTodo,
+}: TodoListProps) {
 	const todosLength = todos.length;
 	const isTasksPlural = todosLength > 1;
 	const filteredTodosList =
@@ -17,7 +21,14 @@ export default function TodoList({ todos, currentTab }: TodoListProps) {
 			</h2>
 			<div className="flex flex-col gap-4">
 				{filteredTodosList.map((todo, todoIndex) => {
-					return <TodoCard key={todoIndex} todo={todo} />;
+					return (
+						<TodoCard
+							key={todoIndex}
+							todo={todo}
+							todoIndex={todoIndex}
+							handleDeleteTodo={handleDeleteTodo}
+						/>
+					);
 				})}
 			</div>
 		</div>

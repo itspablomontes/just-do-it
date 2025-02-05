@@ -4,10 +4,13 @@ export type TodoListProps = {
 		complete: boolean;
 	}[];
 	currentTab: string;
+	handleDeleteTodo: (index: number) => void;
 };
 
-export type TodoTaskType = {
+export type TodoCardProps = {
 	todo: { input: string; complete: boolean };
+	todoIndex: number;
+	handleDeleteTodo: (index: number) => void;
 };
 
 export type TodoInputProps = {

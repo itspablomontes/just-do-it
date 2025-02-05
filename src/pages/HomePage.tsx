@@ -14,6 +14,13 @@ export default function HomePage() {
 		setTodos(newTodoList);
 	};
 
+	const handleDeleteTodo = (index: number) => {
+		const newTodoList = todos.filter((val, valIndex) => {
+			return valIndex !== index;
+		});
+		setTodos(newTodoList);
+	};
+
 	return (
 		<div className="px-8 sm:px-20 py-5 flex flex-col gap-5">
 			<Tabs
@@ -21,7 +28,11 @@ export default function HomePage() {
 				currentTab={currentTab}
 				setCurrentTab={setCurrentTab}
 			/>
-			<TodoList todos={todos} currentTab={currentTab} />
+			<TodoList
+				todos={todos}
+				currentTab={currentTab}
+				handleDeleteTodo={handleDeleteTodo}
+			/>
 			<TodoInput handleAddTodo={handleAddTodo} />
 		</div>
 	);
