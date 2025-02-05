@@ -34,7 +34,7 @@ export default function HomePage() {
 	};
 
 	const handleSaveData = (currentTodos: Todo[]) => {
-		localStorage.setItem("just-do-it", JSON.stringify({ todos }));
+		localStorage.setItem("just-do-it", JSON.stringify({ currentTodos }));
 	};
 
 	useEffect(() => {
