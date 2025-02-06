@@ -9,7 +9,7 @@ export default function HomePage() {
 		{ input: "Hello! Add your first todo!", complete: false },
 	]);
 	const [currentTab, setCurrentTab] = useState("Open");
-
+	console.log(todos);
 	const handleAddTodo = (newTodo: string) => {
 		const newTodoList = [...todos, { input: newTodo, complete: false }];
 		setTodos(newTodoList);
@@ -32,15 +32,16 @@ export default function HomePage() {
 		setTodos(newTodoList);
 		handleSaveData(newTodoList);
 	};
-
+	const KEY = "just-do-it";
 	const handleSaveData = (currentTodos: Todo[]) => {
-		localStorage.setItem("just-do-it", JSON.stringify({ currentTodos }));
+		localStorage.setItem(KEY, JSON.stringify({ currentTodos }));
 	};
-
 	useEffect(() => {
-		if (!localStorage || !localStorage.getItem("just-do-it")) return;
-		const db = JSON.parse(localStorage.getItem("just-do-it"));
-		setTodos(db.todos);
+		if (!localStorage || !localStorage.getItem(KEY)) {
+			return;
+		}
+		const db = JSON.parse(localStorage.getItem(KEY) ?? "{}");
+		setTodos(db.currentTodos);
 	}, []);
 
 	return (
